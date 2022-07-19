@@ -37,9 +37,8 @@ const imageTxt = document.querySelector(".image-text");
 for(i = 0; i < images.length; i++){
     imgContainer.innerHTML +=  '<div class="img-item"><img src="' + images[i].url + '" alt=""></div>'
     
-    // imageTxt.append()//AGGIUNTA APPEND
     const div = document.createElement('div');
-    div.classList.add("image-title", "hide");
+    div.classList.add("image-title");
 
     const h2 = document.createElement("h2");
     const p = document.createElement("p");
@@ -54,14 +53,14 @@ for(i = 0; i < images.length; i++){
 };
 
 const imgItem = document.getElementsByClassName("img-item");
+const imageTitle = document.querySelectorAll(".image-title");
 
 let currentImg = 0;
 let currentText = 0;
 
 imgItem[currentImg].classList.add("show");
+imageTitle[currentText].classList.add("show")
 
-const imageTitle = document.querySelector("div.image-title");
-imageTitle.classList.remove("hide")
 
 const forward = document.querySelector(".forward");
 const back = document.querySelector(".back")
@@ -70,20 +69,22 @@ forward.classList.add("show")
 
 forward.addEventListener("click",
     function() {
-        console.log(currentImg)
         imgItem[currentImg].classList.remove("show");
         currentImg++;
         imgItem[currentImg].classList.add("show");
 
-        imageTitle.classList.add("hide");
+        imageTitle[currentText].classList.remove("show");
         currentText++;
-        imageTitle.classList.remove("hide");
+        imageTitle[currentText].classList.add("show")
+
+        console.log(currentText);
 
         back.classList.remove("hide");
 
         if(currentImg == (images.length - 1)){
             forward.classList.remove("show");
         }
+
     }
 )
 
@@ -92,6 +93,10 @@ back.addEventListener("click",
         imgItem[currentImg].classList.remove("show");
         currentImg--;
         imgItem[currentImg].classList.add("show");
+
+        imageTitle[currentText].classList.remove("show");
+        currentText--;
+        imageTitle[currentText].classList.add("show");
 
        forward.classList.add("show");
 

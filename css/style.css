@@ -30,7 +30,10 @@ img{
 .image-text{
     position: absolute;
     top: 30px;
-    /* display: none; */
+}
+
+.image-title{
+    display: none;
 }
 
 .arrow i{
