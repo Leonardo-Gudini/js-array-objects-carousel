@@ -30,16 +30,38 @@ const images = [
 
 
 const imgContainer = document.querySelector(".image-container");
+const imageTxt = document.querySelector(".image-text");
+
+
 
 for(i = 0; i < images.length; i++){
     imgContainer.innerHTML +=  '<div class="img-item"><img src="' + images[i].url + '" alt=""></div>'
+    
+    // imageTxt.append()//AGGIUNTA APPEND
+    const div = document.createElement('div');
+    div.classList.add("image-title", "hide");
+
+    const h2 = document.createElement("h2");
+    const p = document.createElement("p");
+
+    h2.append(images[i].title);
+    p.append(images[i].description);
+
+    imageTxt.append(div);
+    div.append(h2)
+    div.append(p)    
+
 };
 
 const imgItem = document.getElementsByClassName("img-item");
 
 let currentImg = 0;
+let currentText = 0;
 
 imgItem[currentImg].classList.add("show");
+
+const imageTitle = document.querySelector("div.image-title");
+imageTitle.classList.remove("hide")
 
 const forward = document.querySelector(".forward");
 const back = document.querySelector(".back")
@@ -52,6 +74,10 @@ forward.addEventListener("click",
         imgItem[currentImg].classList.remove("show");
         currentImg++;
         imgItem[currentImg].classList.add("show");
+
+        imageTitle.classList.add("hide");
+        currentText++;
+        imageTitle.classList.remove("hide");
 
         back.classList.remove("hide");
 

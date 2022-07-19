@@ -27,21 +27,29 @@ img{
     object-fit: cover;
 }
 
+.image-text{
+    position: absolute;
+    top: 30px;
+    /* display: none; */
+}
+
 .arrow i{
     position: absolute;
     font-size: 50px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 30px;
     color: white;
     cursor: pointer;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
 }
 
 .back{
-    bottom: 30px;
+    left: 30px;
 }
 
 .forward{
-    top: 30px;
+    right: 30px;
     display: none;
 }
 
